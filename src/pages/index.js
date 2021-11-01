@@ -1,16 +1,49 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
+// import Image from "./images"
 import { StaticImage } from "gatsby-plugin-image"
-
+import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const IndexPage = () => (
+
+const Heading = styled.h1`
+  padding: 12px;
+  color: green;
+  text-align: center;
+`
+
+const IndexPage = ({data}) => {
+  
+  
+  
+
+  
+  let banner = useStaticQuery(graphql`
+   query Banner {
+     file(relativePath: {eq: "banner.png"}) {
+       childImageSharp {
+         fluid(maxWidth: 1200) {
+           ...GatsbyImageSharpFluid
+         }
+       }
+       }
+   }
+  `)
+
+  return(
+
   <Layout>
     <Seo title="Home" />
-    <h1>Hi people</h1>
+    <Heading>
+
+    <h1>Hi people </h1>
+    <h1>Welcome to the styled components</h1>
+    </Heading>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
+    <Img fluid={banner.file.childImageSharp.fluid}/>
     <StaticImage
       src="../images/gatsby-astronaut.png"
       width={300}
@@ -26,6 +59,12 @@ const IndexPage = () => (
       <Link to="/using-dsg">Go to "Using DSG"</Link>
     </p>
   </Layout>
-)
+  )
+}
+
+
+
+
 
 export default IndexPage
+
