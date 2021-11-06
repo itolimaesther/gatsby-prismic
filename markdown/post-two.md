@@ -5,6 +5,7 @@ publisher: Jane Doe
 published: true
 thumbnail: 'thumb-ts.png'
 banner: 'banner-ts.png'
+categories: ["tech", "typescript"]
 ---
 
 # Subheading

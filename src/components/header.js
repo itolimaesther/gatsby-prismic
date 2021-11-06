@@ -1,35 +1,38 @@
-import * as React from "react"
+import React, {useState} from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import Dropdown from "./dropdown";
+import { Link } from "gatsby";
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
+
+
+const Header = ({ siteTitle }) => {
+
+  const [selected, setSelected] = useState("");
+
+  return(
+    <header>
+    <div>
+    
+
+      <h1>
+        {/* <Link
+          to="/">
           {siteTitle}
-        </Link>
+        </Link> */}
+        Blog
       </h1>
+      <div className="category">
+      <input className="input-search" placeholder="search" type="text" />
+      <Dropdown selected={selected} setSelected={setSelected}/>
+
+      </div>
     </div>
-  </header>
-)
+    </header>
+
+  )
+}
+
+
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

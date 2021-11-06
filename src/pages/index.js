@@ -2,6 +2,7 @@ import * as React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Intro from "../components/intro"
+// import "../components/style.css"
 // import Image from "./images"
 // import { StaticImage } from "gatsby-plugin-image"
 // import styled from "styled-components"
@@ -57,32 +58,23 @@ const IndexPage = () => {
       
       <h3>My Articles</h3>
         
-          <div 
-              style={{
-                display: `flex`,
-                justifyContent:  `space-around`,
-                columnGap: `12px`
-              }}
-               >
+          <div className="articles">
               {getArticles.allMarkdownRemark.edges.map(({node}) => (
-              <div key={node.id}>
-                <Link to={`articles${node.fields.slug}`}> 
+              <div key={node.id} className="image-wrapper">
+                <Link to={`articles${node.fields.slug}`} className="article-link"> 
                 <div>
                       <Img
                         fluid={node.frontmatter.thumbnail.childImageSharp.fluid}
                         alt={node.frontmatter.title}
                        
                       />
-                      <h5
-                        style={{
-                          padding: `15px 0px 0px`,
-                        }}
-                      >
+                      <h5 className="sub-heading">
                         {node.frontmatter.title}
                       </h5>
-                      <p>{node.excerpt}</p>
+                      <p className="description">{node.excerpt}</p>
                     </div>
               </Link>
+
             </div>
             ))}
           </div>

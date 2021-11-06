@@ -5,6 +5,7 @@ publisher: Jane Doe
 published: true
 thumbnail: 'thumb-hasura.png'
 banner: 'banner-hasura.png'
+categories: ["tech", "grapql"]
 ---
 
 # Subheading

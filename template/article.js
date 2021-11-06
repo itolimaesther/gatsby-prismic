@@ -21,7 +21,7 @@ export const query = graphql`
         title
         banner{
             childImageSharp{
-                fluid(maxWidth: 750){
+                fluid(maxWidth: 950){
                     ...GatsbyImageSharpFluid
                 }
             }

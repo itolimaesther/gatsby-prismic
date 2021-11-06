@@ -1,0 +1,100 @@
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+
+}
+header{
+    background-color: #f1e8e1;
+    margin-bottom: 1.45rem;
+    height: 420px;
+}
+
+h1{
+    color: #b3694d;
+    text-align: center;
+    text-decoration: none;
+    padding-top: 120px;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.articles{
+    display: flex;
+    flex-wrap: wrap;
+}
+.article-link{
+    text-decoration: none;
+    color: black;
+}
+
+.image-wrapper{
+    flex-grow: 1;
+    width: 25%;
+    margin: 13px;
+}
+.article-link .sub-heading{
+    padding: 15px 0px 0px;
+    font-size: 25px;
+    color: #b3694d;
+}
+
+.article-link .description{
+    color: #000;
+
+}
+
+.category{
+    display: flex;
+    margin: 0 auto;
+    text-align: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.input-search{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #a5a5a5;
+    margin-right: 15px;
+    padding: 10px;
+}
+
+
+.dropdown{
+    width: 250px;
+    /* margin: 100px auto; */
+    user-select: none;
+}
+
+.dropdown .dropdown-btn{
+    padding: 10px; 
+    background-color: #ebe2dc;
+    letter-spacing: 4px;
+    font-size: 15px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+
+.dropdown .dropdown-content{
+    position: absolute;
+    top: 38%;
+    padding: 15px;
+    width: 250px;
+    margin-left: -12px;
+    background-color: #fff;
+
+}
+
+.dropdown .dropdown-content .dropdown-items{
+    padding: 10px;
+}
+
+.dropdown .dropdown-content .dropdown-items:hover{
+    background-color: #fff;
+}

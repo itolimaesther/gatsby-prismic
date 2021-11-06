@@ -5,6 +5,7 @@ publisher: Jane Doe
 published: true
 thumbnail: 'thumb-jam.png'
 banner: 'banner-jam.png'
+categories: ["tech jamstack"]
 ---
 
 # Subheading
