@@ -1,0 +1,50 @@
+{
+  "Main": {
+    "heading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Heading",
+        "placeholder": "heading of the article"
+      }
+    },
+    "thumbnail": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "thumbnail"
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "id",
+        "placeholder": "Id"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Description"
+      }
+    },
+    "detailimage": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "detailImage"
+      }
+    },
+    "subheading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "subheading",
+        "placeholder": "sub heading"
+      }
+    }
+  }
+}

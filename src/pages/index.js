@@ -1,63 +1,97 @@
 import * as React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
+import Intro from "../components/intro"
 // import Image from "./images"
-import { StaticImage } from "gatsby-plugin-image"
-import styled from "styled-components"
+// import { StaticImage } from "gatsby-plugin-image"
+// import styled from "styled-components"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 
-const Heading = styled.h1`
-  padding: 12px;
-  color: green;
-  text-align: center;
-`
-
-const IndexPage = ({data}) => {
+const IndexPage = () => {
   
   
   
 
   
-  let banner = useStaticQuery(graphql`
-   query Banner {
-     file(relativePath: {eq: "banner.png"}) {
-       childImageSharp {
-         fluid(maxWidth: 1200) {
-           ...GatsbyImageSharpFluid
-         }
-       }
-       }
-   }
+  let getArticles = useStaticQuery(graphql`
+  query Aricles{
+    allMarkdownRemark {
+    edges {
+      node {
+        fields{
+          slug
+        }
+        frontmatter {
+          title
+          date
+          publisher
+          published
+          banner {
+            absolutePath
+          }
+          thumbnail {
+            childImageSharp{
+              fluid(maxWidth: 50){
+                  ...GatsbyImageSharpFluid
+              }
+          }
+            absolutePath
+          }
+        }
+        excerpt
+      }
+    }
+    totalCount
+  }}
   `)
 
   return(
 
   <Layout>
     <Seo title="Home" />
-    <Heading>
+    <Intro/>
 
-    <h1>Hi people </h1>
-    <h1>Welcome to the styled components</h1>
-    </Heading>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Img fluid={banner.file.childImageSharp.fluid}/>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
-      <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
-      <Link to="/using-dsg">Go to "Using DSG"</Link>
-    </p>
+    <div>
+      
+      <h3>My Articles</h3>
+        
+          <div 
+              style={{
+                display: `flex`,
+                justifyContent:  `space-around`,
+                columnGap: `12px`
+              }}
+               >
+              {getArticles.allMarkdownRemark.edges.map(({node}) => (
+              <div key={node.id}>
+                <Link to={`articles${node.fields.slug}`}> 
+                <div>
+                      <Img
+                        fluid={node.frontmatter.thumbnail.childImageSharp.fluid}
+                        alt={node.frontmatter.title}
+                       
+                      />
+                      <h5
+                        style={{
+                          padding: `15px 0px 0px`,
+                        }}
+                      >
+                        {node.frontmatter.title}
+                      </h5>
+                      <p>{node.excerpt}</p>
+                    </div>
+              </Link>
+            </div>
+            ))}
+          </div>
+      
+      
+
+    </div>
+
+    
   </Layout>
   )
 }
