@@ -7,7 +7,7 @@ import { Link } from "gatsby";
 
 const Header = ({ siteTitle }) => {
 
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState("CATEGORIES");
 
   return(
     <header>

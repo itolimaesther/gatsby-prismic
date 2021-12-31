@@ -36,6 +36,7 @@ h1{
     padding: 15px 0px 0px;
     font-size: 25px;
     color: #b3694d;
+    text-decoration: underline;
 }
 
 .article-link .description{

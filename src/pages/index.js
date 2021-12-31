@@ -52,7 +52,7 @@ const IndexPage = () => {
 
   <Layout>
     <Seo title="Home" />
-    <Intro/>
+ 
 
     <div>
       
